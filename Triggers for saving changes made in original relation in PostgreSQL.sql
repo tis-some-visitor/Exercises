@@ -10,7 +10,7 @@ create or replace function history_in()
 returns trigger 
 as $$ 
 begin 
-    execute format('insert into %I select ($1).*, current_timestamp, ', tg_table_name||'_backup') using new; 
+    execute format('insert into %I select ($1).*, current_timestamp, null', tg_table_name||'_backup') using new; 
     return new; 
 end; 
 $$ language plpgsql;
