@@ -9,7 +9,7 @@ begin
     select current_time into timeNow; 
     if (timeNow >= '00:00:00' and timeNow <= '08:00:00') 
         or (timeNow >= '22:00:00' and timeNow <= '23:59:59')   
-    then raise exeption 'No creating at nighttime (21:00 - 08:00)'; 
+    then raise exception 'No creating at nighttime (21:00 - 08:00)'; 
     end if; 
 end; 
 $$ language plpgsql;
